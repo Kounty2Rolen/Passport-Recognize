@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Passport.Controls.Human
 {
@@ -14,13 +15,13 @@ namespace Passport.Controls.Human
         string lname;
         string serial;
         string nationality;
-        string year;
-        string mounth;
-        string day;
+        int year;
+        int mounth;
+        int day;
         string gender;
-        string passportYear;
-        string passportMounth;
-        string passportDay;
+        int passportYear;
+        int passportMounth;
+        int passportDay;
         string code;
         double accuracy;
         double x;
@@ -35,13 +36,13 @@ namespace Passport.Controls.Human
         public string Mname { get => mname; set => mname = value; }
         public string Lname { get => lname; set => lname = value; }
         public string Serial { get => serial; set => serial = value; }
-        public string Year { get => year; set => year = value; }
-        public string Mounth { get => mounth; set => mounth = value; }
-        public string Day { get => day; set => day = value; }
+        public int Year { get => year; set => year = value; }
+        public int Mounth { get => mounth; set => mounth = value; }
+        public int Day { get => day; set => day = value; }
         public string Gender { get => gender; set => gender = value; }
-        public string PassportYear { get => passportYear; set => passportYear = value; }
-        public string PassportMounth { get => passportMounth; set => passportMounth = value; }
-        public string PassportDay { get => passportDay; set => passportDay = value; }
+        public int PassportYear { get => passportYear; set => passportYear = value; }
+        public int PassportMounth { get => passportMounth; set => passportMounth = value; }
+        public int PassportDay { get => passportDay; set => passportDay = value; }
         public string Code { get => code; set => code = value; }
         public string Nationality { get => nationality; set => nationality = value; }
         public double Accuracy { get => accuracy; set => accuracy = value; }
@@ -49,10 +50,5 @@ namespace Passport.Controls.Human
         public double Y { get => y; set => y = value; }
         public double Width { get => width; set => width = value; }
         public double Height { get => height; set => height = value; }
-
-        public override string ToString()
-        {
-            return Fname + " " + Mname + " " + Lname + Environment.NewLine + Serial + " " + day + " " + Mounth + " " + Year;
-        }
     }
 }
