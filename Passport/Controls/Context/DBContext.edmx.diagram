@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e76d628785864811947134fdbeea95c4" Name="Diagram1">
+        <EntityTypeShape EntityType="DiplomModel.Air_Stuard" Width="1.5" PointX="12" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Airplane" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.AirShip" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Capitan" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.country" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Flight" Width="1.5" PointX="12" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Human" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Passport" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Permissions" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Stuards" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.Ticket" Width="1.5" PointX="14.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DiplomModel.wanted" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="DiplomModel.FK__Air_Stuar__Airpl__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Air_Stuar__Stuar__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Airplane__Capita__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Airplane__Сharac__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Flight__Airplane__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Capitan__Specifi__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Permissio__AirCr__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Capitan__HumanID__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Permissio__Capit__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Passport__PCount__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Ticket__FlightId__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Human__PassportI__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Stuards__HumanID__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__Ticket__HumanID__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DiplomModel.FK__wanted__HumanID__693CA210" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

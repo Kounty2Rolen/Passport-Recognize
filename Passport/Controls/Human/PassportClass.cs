@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Passport.Controls.Human
+namespace PassportRecognize.Controls.Human
 {
     class PassportClass
     {
@@ -50,5 +50,14 @@ namespace Passport.Controls.Human
         public double Y { get => y; set => y = value; }
         public double Width { get => width; set => width = value; }
         public double Height { get => height; set => height = value; }
+
+        public DateTime getBirthDate()
+        { 
+        return DateTime.Parse(Year + "." + Mounth + "." + Day);
+        }
+        public DateTime getPassportDate()
+        {
+           return DateTime.Parse(PassportYear + "." + PassportMounth + "." + PassportDay);
+        }
     }
 }

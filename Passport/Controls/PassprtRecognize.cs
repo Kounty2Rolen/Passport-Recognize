@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using IronOcr;
 using NickBuhro.Translit;
-using Passport.Controls.Human;
+using PassportRecognize.Controls.Human;
 
-namespace Passport.Controls
+namespace PassportRecognize.Controls
 {
-    class PassportRecognize
+    class PassportRecognizeClass
     {
         public PassportClass ReadPassport(Bitmap bitmap)
         {
@@ -65,7 +65,7 @@ namespace Passport.Controls
                 }
                 if (passport.Serial != string.Empty)
                 {
-                    passport.Serial = name[3].Substring(0, 2) + " " + name[3].Substring(2, 1) + name[4].First() + " " + name[3].Substring(3, 6);
+                    passport.Serial = name[3].Substring(0, 3)+ name[4].First() + name[3].Substring(3, 6);
                     passport.Nationality = name[3].Substring(10, 3);
                     passport.Year = Convert.ToInt32(name[3].Substring(13, 2));
                     passport.Mounth = Convert.ToInt32(name[3].Substring(15, 2));

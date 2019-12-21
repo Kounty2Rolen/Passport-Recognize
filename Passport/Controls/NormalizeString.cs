@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Passport.Controls
+namespace PassportRecognize.Controls
 {
     static class NormalizeString
     {

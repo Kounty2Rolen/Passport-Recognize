@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DiplomModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Air_Stuard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AirplaneID" Type="int" />
+          <Property Name="StuardID" Type="int" />
+        </EntityType>
+        <EntityType Name="Airplane">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlightName" Type="varchar" MaxLength="250" />
+          <Property Name="Сharacteristics" Type="int" />
+          <Property Name="CapitanID" Type="int" />
+        </EntityType>
+        <EntityType Name="AirShip">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AirCraftName" Type="varchar" MaxLength="250" />
+          <Property Name="TurbojetPower" Type="float" />
+          <Property Name="Seats" Type="int" />
+          <Property Name="Fuel" Type="float" />
+          <Property Name="Staff" Type="int" />
+        </EntityType>
+        <EntityType Name="Capitan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HumanID" Type="int" />
+          <Property Name="Specification" Type="int" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="CountryName" />
+          </Key>
+          <Property Name="CountryName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Flight">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AirplaneID" Type="int" />
+        </EntityType>
+        <EntityType Name="Human">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fname" Type="varchar" MaxLength="250" />
+          <Property Name="Mname" Type="varchar" MaxLength="250" />
+          <Property Name="Lname" Type="varchar" MaxLength="250" />
+          <Property Name="PassportID" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="serialAndNumber" />
+          </Key>
+          <Property Name="serialAndNumber" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Passportdate" Type="datetime" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="PCountry" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AirCraft" Type="int" />
+          <Property Name="Capitan" Type="int" />
+        </EntityType>
+        <EntityType Name="Stuards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HumanID" Type="int" />
+          <Property Name="Company" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HumanID" Type="int" />
+          <Property Name="FlightId" Type="int" />
+        </EntityType>
+        <EntityType Name="wanted">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HumanID" Type="int" />
+        </EntityType>
+        <Association Name="FK__Air_Stuar__Airpl__656C112C">
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="0..1" />
+          <End Role="Air_Stuard" Type="Self.Air_Stuard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airplane">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Air_Stuard">
+              <PropertyRef Name="AirplaneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Air_Stuar__Stuar__66603565">
+          <End Role="Stuards" Type="Self.Stuards" Multiplicity="0..1" />
+          <End Role="Air_Stuard" Type="Self.Air_Stuard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stuards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Air_Stuard">
+              <PropertyRef Name="StuardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Airplane__Capita__59063A47">
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="0..1" />
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capitan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Airplane">
+              <PropertyRef Name="CapitanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Airplane__Сharac__5812160E">
+          <End Role="AirShip" Type="Self.AirShip" Multiplicity="0..1" />
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirShip">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Airplane">
+              <PropertyRef Name="Сharacteristics" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Capitan__HumanID__5070F446">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Capitan">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Capitan__Specifi__5165187F">
+          <End Role="AirShip" Type="Self.AirShip" Multiplicity="0..1" />
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirShip">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Capitan">
+              <PropertyRef Name="Specification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flight__Airplane__5BE2A6F2">
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="0..1" />
+          <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airplane">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Flight">
+              <PropertyRef Name="AirplaneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Human__PassportI__72C60C4A">
+          <End Role="Passport" Type="Self.Passport" Multiplicity="0..1" />
+          <End Role="Human" Type="Self.Human" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="serialAndNumber" />
+            </Principal>
+            <Dependent Role="Human">
+              <PropertyRef Name="PassportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Passport__PCount__76969D2E">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="Passport" Type="Self.Passport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryName" />
+            </Principal>
+            <Dependent Role="Passport">
+              <PropertyRef Name="PCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__AirCr__5441852A">
+          <End Role="AirShip" Type="Self.AirShip" Multiplicity="0..1" />
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirShip">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="AirCraft" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Capit__5535A963">
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="0..1" />
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capitan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="Capitan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Stuards__HumanID__628FA481">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="Stuards" Type="Self.Stuards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Stuards">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__FlightId__5FB337D6">
+          <End Role="Flight" Type="Self.Flight" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flight">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="FlightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__HumanID__5EBF139D">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wanted__HumanID__693CA210">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="wanted" Type="Self.wanted" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="wanted">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DiplomModelContainer">
+          <EntitySet Name="Air_Stuard" EntityType="Self.Air_Stuard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Airplane" EntityType="Self.Airplane" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AirShip" EntityType="Self.AirShip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Capitan" EntityType="Self.Capitan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Human" EntityType="Self.Human" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stuards" EntityType="Self.Stuards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wanted" EntityType="Self.wanted" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Air_Stuar__Airpl__656C112C" Association="Self.FK__Air_Stuar__Airpl__656C112C">
+            <End Role="Airplane" EntitySet="Airplane" />
+            <End Role="Air_Stuard" EntitySet="Air_Stuard" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Air_Stuar__Stuar__66603565" Association="Self.FK__Air_Stuar__Stuar__66603565">
+            <End Role="Stuards" EntitySet="Stuards" />
+            <End Role="Air_Stuard" EntitySet="Air_Stuard" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Airplane__Capita__59063A47" Association="Self.FK__Airplane__Capita__59063A47">
+            <End Role="Capitan" EntitySet="Capitan" />
+            <End Role="Airplane" EntitySet="Airplane" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Airplane__Сharac__5812160E" Association="Self.FK__Airplane__Сharac__5812160E">
+            <End Role="AirShip" EntitySet="AirShip" />
+            <End Role="Airplane" EntitySet="Airplane" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Capitan__HumanID__5070F446" Association="Self.FK__Capitan__HumanID__5070F446">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Capitan" EntitySet="Capitan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Capitan__Specifi__5165187F" Association="Self.FK__Capitan__Specifi__5165187F">
+            <End Role="AirShip" EntitySet="AirShip" />
+            <End Role="Capitan" EntitySet="Capitan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flight__Airplane__5BE2A6F2" Association="Self.FK__Flight__Airplane__5BE2A6F2">
+            <End Role="Airplane" EntitySet="Airplane" />
+            <End Role="Flight" EntitySet="Flight" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Human__PassportI__72C60C4A" Association="Self.FK__Human__PassportI__72C60C4A">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Human" EntitySet="Human" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Passport__PCount__76969D2E" Association="Self.FK__Passport__PCount__76969D2E">
+            <End Role="country" EntitySet="country" />
+            <End Role="Passport" EntitySet="Passport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__AirCr__5441852A" Association="Self.FK__Permissio__AirCr__5441852A">
+            <End Role="AirShip" EntitySet="AirShip" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Capit__5535A963" Association="Self.FK__Permissio__Capit__5535A963">
+            <End Role="Capitan" EntitySet="Capitan" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Stuards__HumanID__628FA481" Association="Self.FK__Stuards__HumanID__628FA481">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Stuards" EntitySet="Stuards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__FlightId__5FB337D6" Association="Self.FK__Ticket__FlightId__5FB337D6">
+            <End Role="Flight" EntitySet="Flight" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__HumanID__5EBF139D" Association="Self.FK__Ticket__HumanID__5EBF139D">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wanted__HumanID__693CA210" Association="Self.FK__wanted__HumanID__693CA210">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="wanted" EntitySet="wanted" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DiplomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Air_Stuard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AirplaneID" Type="Int32" />
+          <Property Name="StuardID" Type="Int32" />
+          <NavigationProperty Name="Airplane" Relationship="Self.FK__Air_Stuar__Airpl__656C112C" FromRole="Air_Stuard" ToRole="Airplane" />
+          <NavigationProperty Name="Stuards" Relationship="Self.FK__Air_Stuar__Stuar__66603565" FromRole="Air_Stuard" ToRole="Stuards" />
+        </EntityType>
+        <EntityType Name="Airplane">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlightName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Сharacteristics" Type="Int32" />
+          <Property Name="CapitanID" Type="Int32" />
+          <NavigationProperty Name="Air_Stuard" Relationship="Self.FK__Air_Stuar__Airpl__656C112C" FromRole="Airplane" ToRole="Air_Stuard" />
+          <NavigationProperty Name="Capitan" Relationship="Self.FK__Airplane__Capita__59063A47" FromRole="Airplane" ToRole="Capitan" />
+          <NavigationProperty Name="AirShip" Relationship="Self.FK__Airplane__Сharac__5812160E" FromRole="Airplane" ToRole="AirShip" />
+          <NavigationProperty Name="Flight" Relationship="Self.FK__Flight__Airplane__5BE2A6F2" FromRole="Airplane" ToRole="Flight" />
+        </EntityType>
+        <EntityType Name="AirShip">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AirCraftName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TurbojetPower" Type="Double" />
+          <Property Name="Seats" Type="Int32" />
+          <Property Name="Fuel" Type="Double" />
+          <Property Name="Staff" Type="Int32" />
+          <NavigationProperty Name="Airplane" Relationship="Self.FK__Airplane__Сharac__5812160E" FromRole="AirShip" ToRole="Airplane" />
+          <NavigationProperty Name="Capitan" Relationship="Self.FK__Capitan__Specifi__5165187F" FromRole="AirShip" ToRole="Capitan" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__AirCr__5441852A" FromRole="AirShip" ToRole="Permissions" />
+        </EntityType>
+        <EntityType Name="Capitan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HumanID" Type="Int32" />
+          <Property Name="Specification" Type="Int32" />
+          <NavigationProperty Name="Airplane" Relationship="Self.FK__Airplane__Capita__59063A47" FromRole="Capitan" ToRole="Airplane" />
+          <NavigationProperty Name="AirShip" Relationship="Self.FK__Capitan__Specifi__5165187F" FromRole="Capitan" ToRole="AirShip" />
+          <NavigationProperty Name="Human" Relationship="Self.FK__Capitan__HumanID__5070F446" FromRole="Capitan" ToRole="Human" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__Capit__5535A963" FromRole="Capitan" ToRole="Permissions" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="CountryName" />
+          </Key>
+          <Property Name="CountryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Passport" Relationship="Self.FK__Passport__PCount__76969D2E" FromRole="country" ToRole="Passport" />
+        </EntityType>
+        <EntityType Name="Flight">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AirplaneID" Type="Int32" />
+          <NavigationProperty Name="Airplane" Relationship="Self.FK__Flight__Airplane__5BE2A6F2" FromRole="Flight" ToRole="Airplane" />
+          <NavigationProperty Name="Ticket" Relationship="Self.FK__Ticket__FlightId__5FB337D6" FromRole="Flight" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Human">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Mname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Lname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PassportID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Capitan" Relationship="Self.FK__Capitan__HumanID__5070F446" FromRole="Human" ToRole="Capitan" />
+          <NavigationProperty Name="Passport" Relationship="Self.FK__Human__PassportI__72C60C4A" FromRole="Human" ToRole="Passport" />
+          <NavigationProperty Name="Stuards" Relationship="Self.FK__Stuards__HumanID__628FA481" FromRole="Human" ToRole="Stuards" />
+          <NavigationProperty Name="Ticket" Relationship="Self.FK__Ticket__HumanID__5EBF139D" FromRole="Human" ToRole="Ticket" />
+          <NavigationProperty Name="wanted" Relationship="Self.FK__wanted__HumanID__693CA210" FromRole="Human" ToRole="wanted" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="serialAndNumber" />
+          </Key>
+          <Property Name="serialAndNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Passportdate" Type="DateTime" Precision="3" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="PCountry" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="country" Relationship="Self.FK__Passport__PCount__76969D2E" FromRole="Passport" ToRole="country" />
+          <NavigationProperty Name="Human" Relationship="Self.FK__Human__PassportI__72C60C4A" FromRole="Passport" ToRole="Human" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AirCraft" Type="Int32" />
+          <Property Name="Capitan" Type="Int32" />
+          <NavigationProperty Name="AirShip" Relationship="Self.FK__Permissio__AirCr__5441852A" FromRole="Permissions" ToRole="AirShip" />
+          <NavigationProperty Name="Capitan1" Relationship="Self.FK__Permissio__Capit__5535A963" FromRole="Permissions" ToRole="Capitan" />
+        </EntityType>
+        <EntityType Name="Stuards">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HumanID" Type="Int32" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Air_Stuard" Relationship="Self.FK__Air_Stuar__Stuar__66603565" FromRole="Stuards" ToRole="Air_Stuard" />
+          <NavigationProperty Name="Human" Relationship="Self.FK__Stuards__HumanID__628FA481" FromRole="Stuards" ToRole="Human" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HumanID" Type="Int32" />
+          <Property Name="FlightId" Type="Int32" />
+          <NavigationProperty Name="Flight" Relationship="Self.FK__Ticket__FlightId__5FB337D6" FromRole="Ticket" ToRole="Flight" />
+          <NavigationProperty Name="Human" Relationship="Self.FK__Ticket__HumanID__5EBF139D" FromRole="Ticket" ToRole="Human" />
+        </EntityType>
+        <EntityType Name="wanted">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HumanID" Type="Int32" />
+          <NavigationProperty Name="Human" Relationship="Self.FK__wanted__HumanID__693CA210" FromRole="wanted" ToRole="Human" />
+        </EntityType>
+        <Association Name="FK__Air_Stuar__Airpl__656C112C">
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="0..1" />
+          <End Role="Air_Stuard" Type="Self.Air_Stuard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airplane">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Air_Stuard">
+              <PropertyRef Name="AirplaneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Air_Stuar__Stuar__66603565">
+          <End Role="Stuards" Type="Self.Stuards" Multiplicity="0..1" />
+          <End Role="Air_Stuard" Type="Self.Air_Stuard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stuards">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Air_Stuard">
+              <PropertyRef Name="StuardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Airplane__Capita__59063A47">
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="0..1" />
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capitan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Airplane">
+              <PropertyRef Name="CapitanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Airplane__Сharac__5812160E">
+          <End Role="AirShip" Type="Self.AirShip" Multiplicity="0..1" />
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirShip">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Airplane">
+              <PropertyRef Name="Сharacteristics" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flight__Airplane__5BE2A6F2">
+          <End Role="Airplane" Type="Self.Airplane" Multiplicity="0..1" />
+          <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airplane">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Flight">
+              <PropertyRef Name="AirplaneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Capitan__Specifi__5165187F">
+          <End Role="AirShip" Type="Self.AirShip" Multiplicity="0..1" />
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirShip">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Capitan">
+              <PropertyRef Name="Specification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__AirCr__5441852A">
+          <End Role="AirShip" Type="Self.AirShip" Multiplicity="0..1" />
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AirShip">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="AirCraft" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Capitan__HumanID__5070F446">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Capitan">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Capit__5535A963">
+          <End Role="Capitan" Type="Self.Capitan" Multiplicity="0..1" />
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capitan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permissions">
+              <PropertyRef Name="Capitan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Passport__PCount__76969D2E">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="Passport" Type="Self.Passport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryName" />
+            </Principal>
+            <Dependent Role="Passport">
+              <PropertyRef Name="PCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__FlightId__5FB337D6">
+          <End Role="Flight" Type="Self.Flight" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flight">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="FlightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Human__PassportI__72C60C4A">
+          <End Role="Passport" Type="Self.Passport" Multiplicity="0..1" />
+          <End Role="Human" Type="Self.Human" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="serialAndNumber" />
+            </Principal>
+            <Dependent Role="Human">
+              <PropertyRef Name="PassportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Stuards__HumanID__628FA481">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="Stuards" Type="Self.Stuards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Stuards">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ticket__HumanID__5EBF139D">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wanted__HumanID__693CA210">
+          <End Role="Human" Type="Self.Human" Multiplicity="0..1" />
+          <End Role="wanted" Type="Self.wanted" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="wanted">
+              <PropertyRef Name="HumanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DiplomEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Air_Stuard" EntityType="Self.Air_Stuard" />
+          <EntitySet Name="Airplane" EntityType="Self.Airplane" />
+          <EntitySet Name="AirShip" EntityType="Self.AirShip" />
+          <EntitySet Name="Capitan" EntityType="Self.Capitan" />
+          <EntitySet Name="country" EntityType="Self.country" />
+          <EntitySet Name="Flight" EntityType="Self.Flight" />
+          <EntitySet Name="Human" EntityType="Self.Human" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" />
+          <EntitySet Name="Permissions" EntityType="Self.Permissions" />
+          <EntitySet Name="Stuards" EntityType="Self.Stuards" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" />
+          <EntitySet Name="wanted" EntityType="Self.wanted" />
+          <AssociationSet Name="FK__Air_Stuar__Airpl__656C112C" Association="Self.FK__Air_Stuar__Airpl__656C112C">
+            <End Role="Airplane" EntitySet="Airplane" />
+            <End Role="Air_Stuard" EntitySet="Air_Stuard" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Air_Stuar__Stuar__66603565" Association="Self.FK__Air_Stuar__Stuar__66603565">
+            <End Role="Stuards" EntitySet="Stuards" />
+            <End Role="Air_Stuard" EntitySet="Air_Stuard" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Airplane__Capita__59063A47" Association="Self.FK__Airplane__Capita__59063A47">
+            <End Role="Capitan" EntitySet="Capitan" />
+            <End Role="Airplane" EntitySet="Airplane" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Airplane__Сharac__5812160E" Association="Self.FK__Airplane__Сharac__5812160E">
+            <End Role="AirShip" EntitySet="AirShip" />
+            <End Role="Airplane" EntitySet="Airplane" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flight__Airplane__5BE2A6F2" Association="Self.FK__Flight__Airplane__5BE2A6F2">
+            <End Role="Airplane" EntitySet="Airplane" />
+            <End Role="Flight" EntitySet="Flight" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Capitan__Specifi__5165187F" Association="Self.FK__Capitan__Specifi__5165187F">
+            <End Role="AirShip" EntitySet="AirShip" />
+            <End Role="Capitan" EntitySet="Capitan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__AirCr__5441852A" Association="Self.FK__Permissio__AirCr__5441852A">
+            <End Role="AirShip" EntitySet="AirShip" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Capitan__HumanID__5070F446" Association="Self.FK__Capitan__HumanID__5070F446">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Capitan" EntitySet="Capitan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Capit__5535A963" Association="Self.FK__Permissio__Capit__5535A963">
+            <End Role="Capitan" EntitySet="Capitan" />
+            <End Role="Permissions" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Passport__PCount__76969D2E" Association="Self.FK__Passport__PCount__76969D2E">
+            <End Role="country" EntitySet="country" />
+            <End Role="Passport" EntitySet="Passport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__FlightId__5FB337D6" Association="Self.FK__Ticket__FlightId__5FB337D6">
+            <End Role="Flight" EntitySet="Flight" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Human__PassportI__72C60C4A" Association="Self.FK__Human__PassportI__72C60C4A">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Human" EntitySet="Human" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Stuards__HumanID__628FA481" Association="Self.FK__Stuards__HumanID__628FA481">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Stuards" EntitySet="Stuards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ticket__HumanID__5EBF139D" Association="Self.FK__Ticket__HumanID__5EBF139D">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wanted__HumanID__693CA210" Association="Self.FK__wanted__HumanID__693CA210">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="wanted" EntitySet="wanted" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DiplomModelContainer" CdmEntityContainer="DiplomEntities">
+          <EntitySetMapping Name="Air_Stuard">
+            <EntityTypeMapping TypeName="DiplomModel.Air_Stuard">
+              <MappingFragment StoreEntitySet="Air_Stuard">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AirplaneID" ColumnName="AirplaneID" />
+                <ScalarProperty Name="StuardID" ColumnName="StuardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Airplane">
+            <EntityTypeMapping TypeName="DiplomModel.Airplane">
+              <MappingFragment StoreEntitySet="Airplane">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FlightName" ColumnName="FlightName" />
+                <ScalarProperty Name="Сharacteristics" ColumnName="Сharacteristics" />
+                <ScalarProperty Name="CapitanID" ColumnName="CapitanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AirShip">
+            <EntityTypeMapping TypeName="DiplomModel.AirShip">
+              <MappingFragment StoreEntitySet="AirShip">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AirCraftName" ColumnName="AirCraftName" />
+                <ScalarProperty Name="TurbojetPower" ColumnName="TurbojetPower" />
+                <ScalarProperty Name="Seats" ColumnName="Seats" />
+                <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+                <ScalarProperty Name="Staff" ColumnName="Staff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Capitan">
+            <EntityTypeMapping TypeName="DiplomModel.Capitan">
+              <MappingFragment StoreEntitySet="Capitan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HumanID" ColumnName="HumanID" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="country">
+            <EntityTypeMapping TypeName="DiplomModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flight">
+            <EntityTypeMapping TypeName="DiplomModel.Flight">
+              <MappingFragment StoreEntitySet="Flight">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AirplaneID" ColumnName="AirplaneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Human">
+            <EntityTypeMapping TypeName="DiplomModel.Human">
+              <MappingFragment StoreEntitySet="Human">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Mname" ColumnName="Mname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="PassportID" ColumnName="PassportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passport">
+            <EntityTypeMapping TypeName="DiplomModel.Passport">
+              <MappingFragment StoreEntitySet="Passport">
+                <ScalarProperty Name="serialAndNumber" ColumnName="serialAndNumber" />
+                <ScalarProperty Name="Passportdate" ColumnName="Passportdate" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="PCountry" ColumnName="PCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="DiplomModel.Permissions">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AirCraft" ColumnName="AirCraft" />
+                <ScalarProperty Name="Capitan" ColumnName="Capitan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stuards">
+            <EntityTypeMapping TypeName="DiplomModel.Stuards">
+              <MappingFragment StoreEntitySet="Stuards">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HumanID" ColumnName="HumanID" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ticket">
+            <EntityTypeMapping TypeName="DiplomModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HumanID" ColumnName="HumanID" />
+                <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wanted">
+            <EntityTypeMapping TypeName="DiplomModel.wanted">
+              <MappingFragment StoreEntitySet="wanted">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HumanID" ColumnName="HumanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

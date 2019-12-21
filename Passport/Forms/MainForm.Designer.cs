@@ -1,4 +1,4 @@
-﻿namespace Passport
+﻿namespace PassportRecognize
 {
     partial class MainForm
     {
@@ -33,29 +33,30 @@
             this.passportNumberTbox = new System.Windows.Forms.TextBox();
             this.passportImagePicBx = new System.Windows.Forms.PictureBox();
             this.passportDataGBox = new System.Windows.Forms.GroupBox();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.firstNameTBox = new System.Windows.Forms.TextBox();
-            this.midlNameTxtBx = new System.Windows.Forms.TextBox();
-            this.midlNameLabel = new System.Windows.Forms.Label();
-            this.lastNameTxtBx = new System.Windows.Forms.TextBox();
-            this.lastNameLable = new System.Windows.Forms.Label();
-            this.contyComboBx = new System.Windows.Forms.ComboBox();
-            this.countyLabel = new System.Windows.Forms.Label();
-            this.birdthDateDTP = new System.Windows.Forms.DateTimePicker();
-            this.birthDateLabel = new System.Windows.Forms.Label();
-            this.passportGiveDateLabel = new System.Windows.Forms.Label();
-            this.passportGiveDTP = new System.Windows.Forms.DateTimePicker();
-            this.genderLabel = new System.Windows.Forms.Label();
-            this.genderCmbBx = new System.Windows.Forms.ComboBox();
-            this.codeMTBx = new System.Windows.Forms.MaskedTextBox();
-            this.codeLabel = new System.Windows.Forms.Label();
+            this.checkBox = new System.Windows.Forms.CheckBox();
+            this.acceptBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nationalComBx = new System.Windows.Forms.ComboBox();
+            this.codeLabel = new System.Windows.Forms.Label();
+            this.codeMTBx = new System.Windows.Forms.MaskedTextBox();
+            this.genderCmbBx = new System.Windows.Forms.ComboBox();
+            this.genderLabel = new System.Windows.Forms.Label();
+            this.passportGiveDateLabel = new System.Windows.Forms.Label();
+            this.passportGiveDTP = new System.Windows.Forms.DateTimePicker();
+            this.birthDateLabel = new System.Windows.Forms.Label();
+            this.birdthDateDTP = new System.Windows.Forms.DateTimePicker();
+            this.countyLabel = new System.Windows.Forms.Label();
+            this.countryComboBx = new System.Windows.Forms.ComboBox();
+            this.lastNameTxtBx = new System.Windows.Forms.TextBox();
+            this.lastNameLable = new System.Windows.Forms.Label();
+            this.midlNameTxtBx = new System.Windows.Forms.TextBox();
+            this.midlNameLabel = new System.Windows.Forms.Label();
+            this.firstNameTBox = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.AccuracityLabel = new System.Windows.Forms.Label();
-            this.acceptBtn = new System.Windows.Forms.Button();
-            this.checkBox = new System.Windows.Forms.CheckBox();
             this.scanButton = new System.Windows.Forms.Button();
+            this.BilletButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.passportImagePicBx)).BeginInit();
             this.passportDataGBox.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +111,7 @@
             this.passportDataGBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.passportDataGBox.Controls.Add(this.BilletButton);
             this.passportDataGBox.Controls.Add(this.checkBox);
             this.passportDataGBox.Controls.Add(this.acceptBtn);
             this.passportDataGBox.Controls.Add(this.label1);
@@ -123,7 +125,7 @@
             this.passportDataGBox.Controls.Add(this.birthDateLabel);
             this.passportDataGBox.Controls.Add(this.birdthDateDTP);
             this.passportDataGBox.Controls.Add(this.countyLabel);
-            this.passportDataGBox.Controls.Add(this.contyComboBx);
+            this.passportDataGBox.Controls.Add(this.countryComboBx);
             this.passportDataGBox.Controls.Add(this.lastNameTxtBx);
             this.passportDataGBox.Controls.Add(this.lastNameLable);
             this.passportDataGBox.Controls.Add(this.midlNameTxtBx);
@@ -140,184 +142,33 @@
             this.passportDataGBox.TabIndex = 4;
             this.passportDataGBox.TabStop = false;
             // 
-            // firstNameLabel
+            // checkBox
             // 
-            this.firstNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(6, 29);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(29, 13);
-            this.firstNameLabel.TabIndex = 3;
-            this.firstNameLabel.Text = "Имя";
+            this.checkBox.AutoSize = true;
+            this.checkBox.Location = new System.Drawing.Point(68, 374);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(186, 17);
+            this.checkBox.TabIndex = 23;
+            this.checkBox.Text = "Я два раза проверил(а) данные";
+            this.checkBox.UseVisualStyleBackColor = true;
+            this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
-            // firstNameTBox
+            // acceptBtn
             // 
-            this.firstNameTBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.acceptBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.firstNameTBox.Location = new System.Drawing.Point(68, 26);
-            this.firstNameTBox.Name = "firstNameTBox";
-            this.firstNameTBox.Size = new System.Drawing.Size(221, 20);
-            this.firstNameTBox.TabIndex = 4;
-            // 
-            // midlNameTxtBx
-            // 
-            this.midlNameTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.midlNameTxtBx.Location = new System.Drawing.Point(68, 52);
-            this.midlNameTxtBx.Name = "midlNameTxtBx";
-            this.midlNameTxtBx.Size = new System.Drawing.Size(221, 20);
-            this.midlNameTxtBx.TabIndex = 6;
-            // 
-            // midlNameLabel
-            // 
-            this.midlNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.midlNameLabel.AutoSize = true;
-            this.midlNameLabel.Location = new System.Drawing.Point(6, 55);
-            this.midlNameLabel.Name = "midlNameLabel";
-            this.midlNameLabel.Size = new System.Drawing.Size(56, 13);
-            this.midlNameLabel.TabIndex = 5;
-            this.midlNameLabel.Text = "Фамилия";
-            // 
-            // lastNameTxtBx
-            // 
-            this.lastNameTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lastNameTxtBx.Location = new System.Drawing.Point(68, 78);
-            this.lastNameTxtBx.Name = "lastNameTxtBx";
-            this.lastNameTxtBx.Size = new System.Drawing.Size(221, 20);
-            this.lastNameTxtBx.TabIndex = 8;
-            // 
-            // lastNameLable
-            // 
-            this.lastNameLable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lastNameLable.AutoSize = true;
-            this.lastNameLable.Location = new System.Drawing.Point(6, 81);
-            this.lastNameLable.Name = "lastNameLable";
-            this.lastNameLable.Size = new System.Drawing.Size(54, 13);
-            this.lastNameLable.TabIndex = 7;
-            this.lastNameLable.Text = "Отчество";
-            // 
-            // contyComboBx
-            // 
-            this.contyComboBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.contyComboBx.FormattingEnabled = true;
-            this.contyComboBx.Location = new System.Drawing.Point(56, 209);
-            this.contyComboBx.Name = "contyComboBx";
-            this.contyComboBx.Size = new System.Drawing.Size(234, 21);
-            this.contyComboBx.TabIndex = 9;
-            // 
-            // countyLabel
-            // 
-            this.countyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.countyLabel.AutoSize = true;
-            this.countyLabel.Location = new System.Drawing.Point(7, 212);
-            this.countyLabel.Name = "countyLabel";
-            this.countyLabel.Size = new System.Drawing.Size(43, 13);
-            this.countyLabel.TabIndex = 10;
-            this.countyLabel.Text = "Страна";
-            // 
-            // birdthDateDTP
-            // 
-            this.birdthDateDTP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.birdthDateDTP.Location = new System.Drawing.Point(98, 104);
-            this.birdthDateDTP.Name = "birdthDateDTP";
-            this.birdthDateDTP.Size = new System.Drawing.Size(191, 20);
-            this.birdthDateDTP.TabIndex = 11;
-            // 
-            // birthDateLabel
-            // 
-            this.birthDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.birthDateLabel.AutoSize = true;
-            this.birthDateLabel.Location = new System.Drawing.Point(6, 110);
-            this.birthDateLabel.Name = "birthDateLabel";
-            this.birthDateLabel.Size = new System.Drawing.Size(86, 13);
-            this.birthDateLabel.TabIndex = 12;
-            this.birthDateLabel.Text = "Дата рождения";
-            // 
-            // passportGiveDateLabel
-            // 
-            this.passportGiveDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.passportGiveDateLabel.AutoSize = true;
-            this.passportGiveDateLabel.Location = new System.Drawing.Point(7, 189);
-            this.passportGiveDateLabel.Name = "passportGiveDateLabel";
-            this.passportGiveDateLabel.Size = new System.Drawing.Size(73, 13);
-            this.passportGiveDateLabel.TabIndex = 14;
-            this.passportGiveDateLabel.Text = "Дата выдачи";
-            // 
-            // passportGiveDTP
-            // 
-            this.passportGiveDTP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.passportGiveDTP.Location = new System.Drawing.Point(86, 183);
-            this.passportGiveDTP.Name = "passportGiveDTP";
-            this.passportGiveDTP.Size = new System.Drawing.Size(204, 20);
-            this.passportGiveDTP.TabIndex = 13;
-            // 
-            // genderLabel
-            // 
-            this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.genderLabel.AutoSize = true;
-            this.genderLabel.Location = new System.Drawing.Point(6, 133);
-            this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(43, 13);
-            this.genderLabel.TabIndex = 15;
-            this.genderLabel.Text = "Гендер";
-            // 
-            // genderCmbBx
-            // 
-            this.genderCmbBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.genderCmbBx.FormattingEnabled = true;
-            this.genderCmbBx.Location = new System.Drawing.Point(55, 130);
-            this.genderCmbBx.Name = "genderCmbBx";
-            this.genderCmbBx.Size = new System.Drawing.Size(234, 21);
-            this.genderCmbBx.TabIndex = 16;
-            // 
-            // codeMTBx
-            // 
-            this.codeMTBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeMTBx.Location = new System.Drawing.Point(120, 236);
-            this.codeMTBx.Mask = "000-000";
-            this.codeMTBx.Name = "codeMTBx";
-            this.codeMTBx.Size = new System.Drawing.Size(170, 20);
-            this.codeMTBx.TabIndex = 17;
-            // 
-            // codeLabel
-            // 
-            this.codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeLabel.AutoSize = true;
-            this.codeLabel.Location = new System.Drawing.Point(7, 239);
-            this.codeLabel.Name = "codeLabel";
-            this.codeLabel.Size = new System.Drawing.Size(107, 13);
-            this.codeLabel.TabIndex = 18;
-            this.codeLabel.Text = "Код подразделения";
+            this.acceptBtn.Enabled = false;
+            this.acceptBtn.Location = new System.Drawing.Point(120, 397);
+            this.acceptBtn.Name = "acceptBtn";
+            this.acceptBtn.Size = new System.Drawing.Size(75, 23);
+            this.acceptBtn.TabIndex = 21;
+            this.acceptBtn.Text = "Подтвердить";
+            this.acceptBtn.UseVisualStyleBackColor = true;
+            this.acceptBtn.Click += new System.EventHandler(this.acceptBtn_Click);
             // 
             // label1
             // 
@@ -341,6 +192,185 @@
             this.nationalComBx.Name = "nationalComBx";
             this.nationalComBx.Size = new System.Drawing.Size(185, 21);
             this.nationalComBx.TabIndex = 19;
+            // 
+            // codeLabel
+            // 
+            this.codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeLabel.AutoSize = true;
+            this.codeLabel.Location = new System.Drawing.Point(7, 239);
+            this.codeLabel.Name = "codeLabel";
+            this.codeLabel.Size = new System.Drawing.Size(107, 13);
+            this.codeLabel.TabIndex = 18;
+            this.codeLabel.Text = "Код подразделения";
+            // 
+            // codeMTBx
+            // 
+            this.codeMTBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeMTBx.Location = new System.Drawing.Point(120, 236);
+            this.codeMTBx.Mask = "000-000";
+            this.codeMTBx.Name = "codeMTBx";
+            this.codeMTBx.Size = new System.Drawing.Size(170, 20);
+            this.codeMTBx.TabIndex = 17;
+            // 
+            // genderCmbBx
+            // 
+            this.genderCmbBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.genderCmbBx.FormattingEnabled = true;
+            this.genderCmbBx.Location = new System.Drawing.Point(55, 130);
+            this.genderCmbBx.Name = "genderCmbBx";
+            this.genderCmbBx.Size = new System.Drawing.Size(234, 21);
+            this.genderCmbBx.TabIndex = 16;
+            // 
+            // genderLabel
+            // 
+            this.genderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.genderLabel.AutoSize = true;
+            this.genderLabel.Location = new System.Drawing.Point(6, 133);
+            this.genderLabel.Name = "genderLabel";
+            this.genderLabel.Size = new System.Drawing.Size(43, 13);
+            this.genderLabel.TabIndex = 15;
+            this.genderLabel.Text = "Гендер";
+            // 
+            // passportGiveDateLabel
+            // 
+            this.passportGiveDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.passportGiveDateLabel.AutoSize = true;
+            this.passportGiveDateLabel.Location = new System.Drawing.Point(7, 189);
+            this.passportGiveDateLabel.Name = "passportGiveDateLabel";
+            this.passportGiveDateLabel.Size = new System.Drawing.Size(73, 13);
+            this.passportGiveDateLabel.TabIndex = 14;
+            this.passportGiveDateLabel.Text = "Дата выдачи";
+            // 
+            // passportGiveDTP
+            // 
+            this.passportGiveDTP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.passportGiveDTP.Location = new System.Drawing.Point(86, 183);
+            this.passportGiveDTP.Name = "passportGiveDTP";
+            this.passportGiveDTP.Size = new System.Drawing.Size(204, 20);
+            this.passportGiveDTP.TabIndex = 13;
+            // 
+            // birthDateLabel
+            // 
+            this.birthDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.birthDateLabel.AutoSize = true;
+            this.birthDateLabel.Location = new System.Drawing.Point(6, 110);
+            this.birthDateLabel.Name = "birthDateLabel";
+            this.birthDateLabel.Size = new System.Drawing.Size(86, 13);
+            this.birthDateLabel.TabIndex = 12;
+            this.birthDateLabel.Text = "Дата рождения";
+            // 
+            // birdthDateDTP
+            // 
+            this.birdthDateDTP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.birdthDateDTP.Location = new System.Drawing.Point(98, 104);
+            this.birdthDateDTP.Name = "birdthDateDTP";
+            this.birdthDateDTP.Size = new System.Drawing.Size(191, 20);
+            this.birdthDateDTP.TabIndex = 11;
+            // 
+            // countyLabel
+            // 
+            this.countyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.countyLabel.AutoSize = true;
+            this.countyLabel.Location = new System.Drawing.Point(7, 212);
+            this.countyLabel.Name = "countyLabel";
+            this.countyLabel.Size = new System.Drawing.Size(43, 13);
+            this.countyLabel.TabIndex = 10;
+            this.countyLabel.Text = "Страна";
+            // 
+            // countryComboBx
+            // 
+            this.countryComboBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.countryComboBx.FormattingEnabled = true;
+            this.countryComboBx.Location = new System.Drawing.Point(56, 209);
+            this.countryComboBx.Name = "countryComboBx";
+            this.countryComboBx.Size = new System.Drawing.Size(234, 21);
+            this.countryComboBx.TabIndex = 9;
+            // 
+            // lastNameTxtBx
+            // 
+            this.lastNameTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lastNameTxtBx.Location = new System.Drawing.Point(68, 78);
+            this.lastNameTxtBx.Name = "lastNameTxtBx";
+            this.lastNameTxtBx.Size = new System.Drawing.Size(221, 20);
+            this.lastNameTxtBx.TabIndex = 8;
+            // 
+            // lastNameLable
+            // 
+            this.lastNameLable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lastNameLable.AutoSize = true;
+            this.lastNameLable.Location = new System.Drawing.Point(6, 81);
+            this.lastNameLable.Name = "lastNameLable";
+            this.lastNameLable.Size = new System.Drawing.Size(54, 13);
+            this.lastNameLable.TabIndex = 7;
+            this.lastNameLable.Text = "Отчество";
+            // 
+            // midlNameTxtBx
+            // 
+            this.midlNameTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.midlNameTxtBx.Location = new System.Drawing.Point(68, 52);
+            this.midlNameTxtBx.Name = "midlNameTxtBx";
+            this.midlNameTxtBx.Size = new System.Drawing.Size(221, 20);
+            this.midlNameTxtBx.TabIndex = 6;
+            // 
+            // midlNameLabel
+            // 
+            this.midlNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.midlNameLabel.AutoSize = true;
+            this.midlNameLabel.Location = new System.Drawing.Point(6, 55);
+            this.midlNameLabel.Name = "midlNameLabel";
+            this.midlNameLabel.Size = new System.Drawing.Size(56, 13);
+            this.midlNameLabel.TabIndex = 5;
+            this.midlNameLabel.Text = "Фамилия";
+            // 
+            // firstNameTBox
+            // 
+            this.firstNameTBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.firstNameTBox.Location = new System.Drawing.Point(68, 26);
+            this.firstNameTBox.Name = "firstNameTBox";
+            this.firstNameTBox.Size = new System.Drawing.Size(221, 20);
+            this.firstNameTBox.TabIndex = 4;
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Location = new System.Drawing.Point(6, 29);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(29, 13);
+            this.firstNameLabel.TabIndex = 3;
+            this.firstNameLabel.Text = "Имя";
             // 
             // label2
             // 
@@ -369,33 +399,6 @@
             this.AccuracityLabel.Size = new System.Drawing.Size(2, 15);
             this.AccuracityLabel.TabIndex = 22;
             // 
-            // acceptBtn
-            // 
-            this.acceptBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.acceptBtn.Enabled = false;
-            this.acceptBtn.Location = new System.Drawing.Point(120, 397);
-            this.acceptBtn.Name = "acceptBtn";
-            this.acceptBtn.Size = new System.Drawing.Size(75, 23);
-            this.acceptBtn.TabIndex = 21;
-            this.acceptBtn.Text = "Подтвердить";
-            this.acceptBtn.UseVisualStyleBackColor = true;
-            // 
-            // checkBox
-            // 
-            this.checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox.AutoSize = true;
-            this.checkBox.Location = new System.Drawing.Point(68, 374);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(186, 17);
-            this.checkBox.TabIndex = 23;
-            this.checkBox.Text = "Я два раза проверил(а) данные";
-            this.checkBox.UseVisualStyleBackColor = true;
-            this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
-            // 
             // scanButton
             // 
             this.scanButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -414,6 +417,16 @@
             this.scanButton.UseVisualStyleBackColor = false;
             this.scanButton.Click += new System.EventHandler(this.scanButton_Click);
             // 
+            // BilletButton
+            // 
+            this.BilletButton.Enabled = false;
+            this.BilletButton.Location = new System.Drawing.Point(201, 397);
+            this.BilletButton.Name = "BilletButton";
+            this.BilletButton.Size = new System.Drawing.Size(75, 23);
+            this.BilletButton.TabIndex = 24;
+            this.BilletButton.Text = "Билеты";
+            this.BilletButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,7 +438,7 @@
             this.Controls.Add(this.passportImagePicBx);
             this.Controls.Add(this.passportDataGBox);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Главная форма ";
             ((System.ComponentModel.ISupportInitialize)(this.passportImagePicBx)).EndInit();
             this.passportDataGBox.ResumeLayout(false);
             this.passportDataGBox.PerformLayout();
@@ -447,8 +460,6 @@
         private System.Windows.Forms.Label midlNameLabel;
         private System.Windows.Forms.TextBox firstNameTBox;
         private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.Label countyLabel;
-        private System.Windows.Forms.ComboBox contyComboBx;
         private System.Windows.Forms.Label birthDateLabel;
         private System.Windows.Forms.DateTimePicker birdthDateDTP;
         private System.Windows.Forms.Label passportGiveDateLabel;
@@ -464,6 +475,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label AccuracityLabel;
         private System.Windows.Forms.Button scanButton;
+        private System.Windows.Forms.Label countyLabel;
+        private System.Windows.Forms.ComboBox countryComboBx;
+        private System.Windows.Forms.Button BilletButton;
     }
 }
 
