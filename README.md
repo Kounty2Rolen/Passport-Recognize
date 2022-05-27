@@ -1,5 +1,5 @@
 # Passport-Recognize
-Application for recognize RUSSIAN passports&amp;for close diplom work :з
+Application for recognize passports
 ### References
 * IronOCR
 * Net.Framework 4.7.2
